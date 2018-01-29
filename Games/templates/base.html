@@ -1,0 +1,50 @@
+{% load static %}
+
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home - Jefferson's Virtual Reality Games</title>
+        <link rel="stylesheet" id="ample-style-css" href="{% static 'style.css' %}" type="text/css" media="all">
+    </head>
+    <body class="wide">
+        <div id="page" class="hfeed site">
+            <header>
+                <div class="header">
+                    <div class="main-head-wrap inner-wrap clearfix">
+                        <div id="header-logo-image">
+                            <a href="/">
+                                <img src="{% static 'images/logo.png' %}" alt="Jefferson's Virtual Reality Games">
+                            </a>
+                        </div>
+                        <div id="header-text" class="">
+                            <h1 id="site-title">
+                                <a href="/" title="Jefferson's Virtual Reality Games" rel="home">Jefferson's Virtual Reality Games</a>
+                            </h1>
+                            <p>This is a practice website listing the Virtual Reality games I own as an exercise with Django.</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="main-wrapper">
+              {% block banner %}
+              {% endblock %}
+                <div class="single-page clearfix">
+                    <div class="inner-wrap">
+
+                        <hr>
+                        <div>
+                        {% block content %}
+                        {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer id="colophon">
+                <div class="inner-wrap">
+                    I do not own the rights to any of these games, this list and website are created solely for the purpose of training. All other images and references of people or characters mentioned, shown, and contained on this site are the intellectual property of their respected owners.
+                </div>
+            </footer>
+        </div>
+        <script src="{% static 'hover.js' %}"></script>
+    </body>
+</html>

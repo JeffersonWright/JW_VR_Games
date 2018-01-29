@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block banner %}
+<div style="text-align: center; margin: 5px 50px -60px 0px;">
+  <a href="https://developer.vive.com/us/vive-studios/">
+    <img src="{% static 'images/vivebanner.png' %}" alt="Jefferson's Virtual Reality Games"  width="800">
+  </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<h6>This is a list of the VR games I have purchased. Click on a game name to see more details or hover to see review.</h6>
+<div>
+  {% for game in games %}
+    <div class="gamename">
+      <a href="{% url 'game_detail' game.id %}">
+        <h3>{{ game.name }}</h3>
+      </a>
+      {% if game.rating %}
+        <p> Rating: {{ game.rating }} </p>
+      {% endif %}
+        <p> {{ game.description }} </p>
+        <p class="hidden"> <b>My Review: </b> {{ game.review }} </p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

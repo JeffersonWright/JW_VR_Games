@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block banner %}
+<script>
+  var htp ='http://cdn.edgecast.steamstatic.com/steam/apps/';
+  var link = '{{game.link}}'
+  var hid =link.substr(34,7);
+  var hjg ='header.jpg';
+  var piclink = htp + hid + hjg;
+</script>
+
+<div style="text-align: center; margin: 5px 0px -63px 0px;" id="banner-logo-image">
+    <a href="{{game.link}}">
+        <img class="game_header_image_full" id='banner' alt="Store-Image" width="700" >
+        <script> document.getElementById('banner').src = piclink; </script>
+    </a>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div>
+  <h3>{{ game.name }}</h3>
+  {% if game.rating %}
+    <p> Rating: {{ game.rating }} </p>
+  {% endif %}
+    <p> {{ game.description }} </p>
+  {% if game.review %}
+    <h6> My Review: </h6>
+    <p> {{ game.review }} </p>
+  {% endif %}
+
+    <a href="{{game.link}}">
+      <h5>{{ game.name }} on Steam</h5>
+    </a>
+
+</div>
+{% endblock %}
